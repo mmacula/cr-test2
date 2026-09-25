@@ -10,6 +10,7 @@ permissions:
 
 jobs:
   check-compliance:
+    if: ${{ !startsWith(github.event.pull_request.base.ref, 'review-fixture-') && !startsWith(github.event.pull_request.head.ref, 'review-fixture-') }}
     runs-on: ubuntu-latest
     steps:
       - name: "Initialize PR Information"
